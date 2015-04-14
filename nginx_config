@@ -1,0 +1,9 @@
+server {
+    listen 192.168.17.1:10061;
+
+    location /status {
+        fastcgi_pass $remote_addr:9000;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+}
